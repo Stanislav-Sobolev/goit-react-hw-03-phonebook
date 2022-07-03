@@ -1,5 +1,3 @@
-import { HeadTitle } from "./PhoneBook.styled";
-
 export const Filter = ({filterState, handleFilter}) => {
 
     return (
