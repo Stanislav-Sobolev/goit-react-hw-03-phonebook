@@ -5,6 +5,7 @@ import { HeadTitle } from "./PhoneBook.styled";
 import { ContactList } from "./ContactList";
 import { Filter } from "./Filter";
 import { ContactForm } from "./ContactForm";
+import PropTypes from 'prop-types';
 
 
 
@@ -90,4 +91,22 @@ export class PhoneBook extends Component {
         )
       }
      
+}
+
+
+ContactForm.propTypes = {
+  initialValues: PropTypes.object,
+  onSubmit: PropTypes.func
+}
+
+Filter.propTypes = {
+  contacts: PropTypes.array,
+  filterState: PropTypes.string,
+  handleFilter: PropTypes.func
+}
+
+ContactList.propTypes = {
+  filteredArr: PropTypes.array,
+  deleteContact: PropTypes.func
+
 }
