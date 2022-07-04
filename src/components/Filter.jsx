@@ -2,7 +2,6 @@ export const Filter = ({filterState, handleFilter}) => {
 
     return (
         <>
-        
         <p>Find contacts by name</p>
         <input 
             type="text" 

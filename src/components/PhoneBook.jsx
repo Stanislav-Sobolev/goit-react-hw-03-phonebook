@@ -1,10 +1,12 @@
 import {Component} from "react";
 import React from 'react';
 import { nanoid } from 'nanoid'
-import { HeadTitle,} from "./PhoneBook.styled";
+import { HeadTitle } from "./PhoneBook.styled";
 import { ContactList } from "./ContactList";
 import { Filter } from "./Filter";
 import { ContactForm } from "./ContactForm";
+
+
 
 
 
@@ -21,16 +23,23 @@ export class PhoneBook extends Component {
         number: ''
       };
 
-      handleSubmit = (e) => {
+      handleSubmit = (e, {resetForm}) => {
 
         this.setState(prevState => {
             
-            const rest = [...prevState.contacts];
+          if(prevState.contacts.find(el => 
+            el.name.toLowerCase().includes(e.name.toLowerCase()))) {
+
+              alert(`${e.name} is already in contacts.`)
+            }
+            else {
+              const newStateContacts = [...prevState.contacts];
             
-            rest.push({id: nanoid(), name: e.name, number: e.number})
-            
-            return {
-                contacts: rest
+              newStateContacts.push({id: nanoid(), name: e.name, number: e.number});
+              resetForm();
+              return {
+                  contacts: newStateContacts
+              }
             }
         })
       }
@@ -49,6 +58,11 @@ export class PhoneBook extends Component {
             el.name.toLowerCase().includes(filterToLowerCase))
       }
 
+      deleteContact = (e) => {
+        const newContacts = this.state.contacts.filter(el => el.id !== e);
+        this.setState({contacts: [...newContacts]})
+      }
+
       render() {
 
         const visibleContacts = this.getVisibleContacts();
@@ -61,15 +75,16 @@ export class PhoneBook extends Component {
                 initialValues={this.state} 
                 onSubmit={this.handleSubmit}/>
           
+          <HeadTitle>Contacts</HeadTitle>
+
             <Filter             
                 contacts={this.state.contacts} 
                 filterState={this.state.filter} 
                 handleFilter={this.handleFilter}/>
 
-            <HeadTitle>Contacts</HeadTitle>
-
             <ContactList 
                 filteredArr={visibleContacts} 
+                deleteContact={this.deleteContact}
            />
           </>
         )

@@ -12,7 +12,7 @@ export const HeadTitle = styled.p`
 export const FormStyled = styled(Form)`
 background-color: azure;
 border: 1px solid lightgray;
-  width: 200px;
+  width: 300px;
   padding: 10px;
   
 `;
@@ -27,21 +27,32 @@ width: 50px;
 
 export const FieldStyled = styled(Field)`
 border:1px solid lightgray;
+width: 250px;
 `;
 
 
 export const ButtonStyled = styled.button`
-display: block;
-margin-top: 15px;
+font-size: 12px;
 background-color: white;
 border: 1px solid lightgray;
-/* padding: 8px; */
-
-
+padding: 3px 6px;
 /* box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12); */
 
 `;
 
 
+export const ContactItem = styled.span`
+display: inline-flex;
+margin-top: 10px;
+margin-right: 10px;
+font-weight: 500;
+`
+
+
+export const Error = styled.div`
+font-size: 14px;
+width: 250px;
+color: red;
+`
 

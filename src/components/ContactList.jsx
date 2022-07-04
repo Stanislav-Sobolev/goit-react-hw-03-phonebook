@@ -1,14 +1,14 @@
-import { nanoid } from 'nanoid'
+import { ButtonStyled, ContactItem } from "./PhoneBook.styled";
 
-
-export const ContactList = ({filteredArr}) => {
+export const ContactList = ({filteredArr, deleteContact}) => {
     
     return (
         <>
         <ul>
             {
             filteredArr.map(item => 
-                <li key={nanoid()}>{item.name}: {item.number}</li>)
+                <li key={item.id}><ContactItem>{item.name}: {item.number}</ContactItem>
+                <ButtonStyled onClick={() => deleteContact(item.id)} >Delete</ButtonStyled> </li>)
             }
         </ul>
         </>
