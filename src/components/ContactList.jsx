@@ -3,7 +3,6 @@ import { ButtonStyled, ContactItem } from "./PhoneBook.styled";
 export const ContactList = ({filteredArr, deleteContact}) => {
     
     return (
-        <>
         <ul>
             {
             filteredArr.map(item => 
@@ -11,6 +10,5 @@ export const ContactList = ({filteredArr, deleteContact}) => {
                 <ButtonStyled onClick={() => deleteContact(item.id)} >Delete</ButtonStyled> </li>)
             }
         </ul>
-        </>
     )
 }

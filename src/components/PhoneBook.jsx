@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 
 
 
-export class PhoneBook extends Component {
+export class App extends Component {
     state = {
         contacts: [
             {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
@@ -76,7 +76,7 @@ export class PhoneBook extends Component {
                 initialValues={this.state} 
                 onSubmit={this.handleSubmit}/>
           
-          <HeadTitle>Contacts</HeadTitle>
+            <HeadTitle>Contacts</HeadTitle>
 
             <Filter             
                 contacts={this.state.contacts} 
