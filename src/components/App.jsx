@@ -21,6 +21,14 @@ export class App extends Component {
       number: ''
     };
 
+    componentDidMount() {
+      const contactsLocalStorage = JSON.parse(localStorage.getItem('contacts'));
+      
+      if (contactsLocalStorage) {
+        this.setState({contacts: contactsLocalStorage})
+      }
+    }
+
     handleSubmit = (e, {resetForm}) => {
 
       this.setState(prevState => {
@@ -34,10 +42,12 @@ export class App extends Component {
             const newStateContacts = [...prevState.contacts];
           
             newStateContacts.push({id: nanoid(), name: e.name, number: e.number});
+
+            localStorage.setItem('contacts', JSON.stringify(newStateContacts));
+            
             resetForm();
-            return {
-                contacts: newStateContacts
-            }
+            
+            return {contacts: newStateContacts}
           }
       })
     }
@@ -58,7 +68,8 @@ export class App extends Component {
 
     deleteContact = (e) => {
       const newContacts = this.state.contacts.filter(el => el.id !== e);
-      this.setState({contacts: [...newContacts]})
+      this.setState({contacts: [...newContacts]});
+      localStorage.setItem('contacts', JSON.stringify(newContacts));
     }
 
     render() {
