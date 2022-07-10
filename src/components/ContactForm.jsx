@@ -12,7 +12,7 @@ let schema = yup.object().shape({
 });
 
 
-export const ContactForm = ({initialValues, onSubmit,  }) => {
+export const ContactForm = ({initialValues, onSubmit }) => {
 
     return (
         <Formik 
