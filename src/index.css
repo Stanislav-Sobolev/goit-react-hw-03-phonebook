@@ -25,6 +25,29 @@ p {
 
 ul {
   margin: 0;
-  /* list-style-type: none; */
-  /* padding: 0; */
+}
+
+.header {
+  background-color: lightgrey;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.headerRateList {
+  display: flex;
+  justify-content: center;
+}
+
+.headerRateItem {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.carrencyFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
